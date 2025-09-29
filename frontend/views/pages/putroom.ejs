@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>PUT ROOM</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+            #navbar{
+                margin-right: 12px;
+            }
+        </style>
+    </head>
+
+    <body class = "container">
+        <h1>
+           PUT ROOM 
+        </h1>   
+        <header>
+            <nav>
+                <a href = "/home" id = "navbar"> Home</a>
+                <a href = "/room/get" id = "navbar"> GET</a> 
+                <a href = "/room/put" id = "navbar"> PUT</a> 
+                <a href = "/room/post" id = "navbar"> POST</a> 
+                <a href = "/room/delete" id = "navbar"> DELETE</a>
+            </nav>
+            
+        </header>  
+
+        <div class = "row">
+            <div class = "col pr-0">
+                <main class = "jumbotron" style = "height:100%;">
+
+                    <h2>Update Room Capacity</h2>
+                    <form action = "/room/put" method = "post" style = "text-align: left;">
+                        Select Room Number: 
+                        <select name = "selectedroom" class = "form-control text-center">
+                            <%if(locals.available_rooms){%>
+                                <%locals.available_rooms.forEach (function(x){%>
+                                    <option value = "<%=x.number%>"> #<%=x.number%></option>
+                                    <%});%>
+                            <%}%>
+                            
+                        </select>
+                        
+                        <br>
+                        Capacity: <input type = "text" name = "capacity" placeholder = "Update Capacity (Number)" class ="form-control" required> <br>
+                        
+                        <input type = "submit" class="btn btn-primary">
+                        
+                    </form><br>
+                    <%if (locals.api_response){%>
+                        <%if (api_response.includes("Invalid")){%>
+                            <span style = "color:red; font-weight: bold;"><%=api_response%></span>
+                        <%}
+                        else{%>
+                            <span style = "color:green; font-weight: bold;"><%=api_response%></span>
+                            <%}
+                        %>
+                    <%}%>
+                    
+                    
+                </main>
+            </div>
+
+            <div class = "col pl-0">
+                <main class="jumbotron" style = "height:100%;">
+                    <h2>Room Database</h2>
+                    <table class = "table table-sm table-primary" style = "width:60%;">
+                        <tr>
+                            <th class = "text-center">Floor</th>
+                            <th class = "text-center">Number</th>
+                            <th class = "text-center">Capacity</th>
+                        </tr>
+                        
+                            <%if(locals.available_rooms){%>
+                                <%locals.available_rooms.forEach(function(x){%>
+                                
+                                    <%if (locals.selected_room){%>
+                                        <%if(x.number == selected_room){%>
+                                            <tr>
+                                                <td class = "text-center" style = "background-color: rgb(200, 255, 200);"><%=x.level%></td>
+                                                <td class = "text-center" style = "background-color: rgb(200, 255, 200);" >#<%=x.number%></td>
+                                                <td class = "text-center" style = "background-color: rgb(200, 255, 200);"><%=x.capacity%></td>
+                                            </tr>
+                                        <%}
+                                        else{%>
+                                            <tr>
+                                                <td class = "text-center"><%=x.level%></td>
+                                                <td class = "text-center">#<%=x.number%></td>
+                                                <td class = "text-center"><%=x.capacity%></td>
+                                            </tr>
+                                        <%}%>
+                                        
+                                        
+                                    <%}
+                                    
+                                
+                                
+                                    else{%>
+                                        <tr>
+                                            <td class = "text-center"><%=x.level%></td>
+                                            <td class = "text-center">#<%=x.number%></td>
+                                            <td class = "text-center"><%=x.capacity%></td>
+                                        </tr>
+                                    <%}%>
+                                    
+                                <%})%>
+                            <%}%>    
+                            
+                            
+                    </table>
+
+                </main>
+            </div>
+        </div>
+        
+        <script>
+            if (window.history.replaceState){
+                    window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+        
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>
+        

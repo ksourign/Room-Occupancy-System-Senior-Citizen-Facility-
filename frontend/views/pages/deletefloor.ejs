@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>DELETE FLOOR</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+           #navbar{
+            margin-right: 12px;
+           }
+           
+        </style>
+    </head>
+
+    <body class = "container">
+        <h1>
+           DELETE FLOOR
+        </h1>
+        <header>
+            <nav >
+                <a href = "/home" id = "navbar"> Home</a> 
+                <a href = "/floor/get" id = "navbar"> GET</a> 
+                <a href = "/floor/put" id = "navbar"> PUT</a> 
+                <a href = "/floor/post" id = "navbar"> POST</a> 
+                <a href = "/floor/delete" id = "navbar"> DELETE</a> 
+            </nav>
+        </header>   
+        
+        <div class = "row">
+            <div class = "col pr-0">
+                <main class = "jumbotron" style = "height:100%;">
+                    <h2>Delete Floor</h2>
+                    <form action = "/floor/delete" method = "post" style = "text-align: left;">
+                        Select Floor Level: 
+                        <select name = "selectedfloor" class = "form-control text-center">
+                            <%if (locals.available_floors){%>
+                                <%locals.available_floors.forEach (function(x){%>
+                                    <option value = "<%=x.id%>"> <%=x.level%></option>
+                                <%});%>
+                            <%}%>
+                            
+                        </select><br>
+                        <input type = "submit" class="btn btn-primary">
+                        
+                    </form><br>
+                    <%if (locals.api_response){%>
+                        <span style = "color:green; font-weight: bold;"><%=api_response%></span>
+                    <%}%>
+                </main>
+            </div>
+            <div class = "col pl-0">
+                <main class = "jumbotron" style = "height:100%;">
+                    <h2>Floor Database</h2>
+                    <table class = "table-sm table-primary table" style ="width:60%;">
+                        <tr>
+                            
+                            <th class = "text-center">Floor Level</th>
+                            <th>Floor Name</th>
+                        </tr>
+                        <%if(locals.available_floors){%>
+                        <%locals.available_floors.forEach(function(x){%>
+                            
+                            <tr>
+                                <td class = "text-center"><%=x.level%></td>
+                                <td ><%=x.name%></td>
+                            </tr>
+                            
+                        <%})%>
+                    <%}%>
+                </table>
+                </main>
+
+            </div>
+        </div>
+        
+        <script>
+            if (window.history.replaceState){
+                    window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+
+
+
+
+
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>

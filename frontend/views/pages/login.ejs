@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>Login</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+    </head>
+
+    <body class = "container">
+        
+        <h1>
+           LOGIN
+        </h1>   
+        <main class = "jumbotron">
+            
+            <form action = "/" method = "post">
+                Username: <input type = "text" name=username required placeholder = "Username" class = "form-control w-25 m-auto"><br>
+                Password: <input type = "text" name=password required placeholder = "Password" class = "form-control w-25 m-auto"><br>
+                <button class = "btn btn-primary">Submit</button>
+            </form>
+            <br>
+            <p id = "para" style = "text-align: center;color:red;">
+                <%if (locals.api_response){%>
+        
+                    <strong><%=api_response%></strong>
+                         
+            <%}%>
+
+            </p>
+            
+        </main>
+
+        <script>
+            if (window.history.replaceState){
+                    window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+
+
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>

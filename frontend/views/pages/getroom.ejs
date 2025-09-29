@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>GET ROOM</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+            #navbar{
+             margin-right: 12px;
+            }
+         </style>
+    </head>
+
+    <body class = "container">
+        <h1>
+           GET ROOM
+        </h1>   
+        <header>
+            <nav>
+                <a href = "/home" id = "navbar"> Home</a>
+                <a href = "/room/get" id = "navbar"> GET</a> 
+                <a href = "/room/put" id = "navbar"> PUT</a> 
+                <a href = "/room/post" id = "navbar"> POST</a> 
+                <a href = "/room/delete" id = "navbar"> DELETE</a>  
+            </nav>
+        </header>  
+        <div class ="row">
+            <div class = "col">
+                <main class = "jumbotron" style = "height: 100%;">
+                <h2 style = "text-align:center;">Room Database</h2>
+                
+                
+                    <table class = "table table-sm table-primary w-25 m-auto">
+                        <tr>
+                            
+                            <th class = "text-center">Floor</th>
+                            <th class = "text-center">Number</th>
+                            <th class = "text-center">Capacity</th>
+                        </tr>
+                            <%if(locals.room){%>
+                            <%locals.room.forEach(function(x){%>
+                                
+                                <tr>
+                                    <td class = "text-center"><%=x.level%></td>
+                                    <td class = "text-center">#<%=x.number%></td>
+                                    <td class = "text-center"><%=x.capacity%></td>
+                                </tr>
+                                
+                            <%})%>
+                            <%}%>
+                    </table>
+                
+                </main>
+            </div>
+            
+        </div>
+        
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>
+        

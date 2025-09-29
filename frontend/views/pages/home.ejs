@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>Home</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+            a{font-size:xx-large;}
+            h2{text-align:center;}
+        </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        
+    </head>
+    
+        <%if (locals.api_response){%>
+           <h1 style = "color:green;"> <%=api_response%></h1>
+        <%}%>
+        
+    <h1>Senior Citizen Facility - Room Occupancy System</h1>
+    <h1><i class="bi bi-person-standing-dress" style = "font-size:50px;"></i><i class="bi bi-person-standing" style = "font-size:50px;"></i><i class="bi bi-buildings" style = "font-size: 100px;"></i><i class="bi bi-person-wheelchair" style = "font-size:50px;"></i></h1>
+    <body class = "container">
+        <main class = "jumbotron">
+            <h2>Which Database Would You Like to Manage?</h2>
+            <%if (locals.floor_length){%>
+                <%if(floor_length == ("0")){%>
+                    <nav> 
+                        <a href = "/floor/get"> FLOOR</a><i class="bi bi-caret-up-square-fill ml-3" style ="font-size: xx-large;"></i><br>
+                        <a style = "color: gray;"> ROOM</a><i class="bi bi-door-closed-fill ml-3" style ="font-size: xx-large;"></i><br>
+                        <a style = "color: gray;"> RESIDENT</a><i class="bi bi-person-fill ml-2" style ="font-size: xx-large;"></i><br><br>
+                        <span style = "color:red;">*Must Post at Least 1 FLOOR to Post a ROOM <br>
+                        *Must Post at Least 1 ROOM to Post a RESIDENT</span>
+                    </nav>
+                 <%}
+
+                 else{%>
+                    <%if (room_length==("0")){%>
+                        <nav> 
+                            <a href = "/floor/get"> FLOOR</a><i class="bi bi-caret-up-square-fill ml-3" style ="font-size: xx-large;"></i><br>
+                            <a href = "/room/get"> ROOM</a><i class="bi bi-door-closed-fill ml-3" style ="font-size: xx-large;"></i><br>
+                            <a style = "color: gray;"> RESIDENT</a><i class="bi bi-person-fill ml-2" style ="font-size: xx-large;"></i><br><br>
+                            <span style = "color:red;">*At least 1 ROOM required to Post a RESIDENT</span>
+                        </nav>
+                    <%}
+                    
+                    else if(room_length != ("0")){%>
+                        <nav> 
+                            <a href = "/floor/get"> FLOOR</a><i class="bi bi-caret-up-square-fill ml-3" style ="font-size: xx-large;"></i><br>
+                            <a href = "/room/get"> ROOM</a><i class="bi bi-door-closed-fill ml-3" style ="font-size: xx-large;"></i><br>
+                            <a href = "/resident/get"> RESIDENT</a><i class="bi bi-person-fill ml-2" style ="font-size: xx-large;"></i><br>
+                        </nav>
+                    <%}%>
+                    
+                    
+                 <%}%>
+
+                 
+            <%}%>
+            
+
+            
+                    
+        
+        
+            
+        </main>
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>

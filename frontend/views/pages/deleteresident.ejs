@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>DELETE RESIDENT</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+            #navbar{
+             margin-right: 12px;
+            }
+         </style>
+    </head>
+
+    <body class = "container">
+        <h1>
+           DELETE RESIDENT
+        </h1>   
+        <header>
+            <nav>
+                <a href = "/home"  id = "navbar"> Home</a> 
+                <a href = "/resident/get" id = "navbar"> GET</a> 
+                <a href = "/resident/put" id = "navbar"> PUT</a> 
+                <a href = "/resident/post" id = "navbar"> POST</a> 
+                <a href = "/resident/delete" id = "navbar"> DELETE</a>
+            </nav>
+        </header>  
+        <div class = "row">
+            <div class = "col pr-0">
+                <main class = "jumbotron" style = "height: 100%;">
+            
+                    <h2>Delete a Resident</h2>
+        
+                    <form action = "/resident/delete" method = "post" style = "text-align: left;" >
+                        Select a Resident: 
+                        <select name = "selected_resident" class = "form-control">
+                            <%if (locals.available_residents){%>
+                                <%locals.available_residents.forEach(function(x){%>
+                                    <option value = "<%=x.id%> <%=x.firstname%> <%=x.lastname%> <%=x.age%> <%=x.number%>"> <%=x.firstname%> <%=x.lastname%>, Age: <%=x.age%>, Room: #<%=x.number%> </option>
+                                <%})%>
+                            <%}%>
+                        </select>
+                        <br>
+                    
+                        <input type = "submit" class = "btn btn-primary">
+                    </form><br>
+                    <%if (locals.api_response){%>
+                        <span style = "color: green; font-weight: bold;"><%=api_response%></span>
+                    <%}%>
+                </main>
+            </div>
+
+            <div class = "col pl-0">
+                <main class = "jumbotron" style = "height: 100%;">
+                    <table class = "table-sm table table-primary" style = "width:100%;">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Room</th>
+                        </tr>
+                        <%if(locals.available_residents){%>
+                           
+                            <%locals.available_residents.forEach(function(x){%>
+                                <tr>
+                                    <td ><%=x.firstname%></td>
+                                    <td ><%=x.lastname%></td>
+                                    <td ><%=x.age%></td>
+                                    <td >#<%=x.number%></td>
+                                </tr>
+                                    
+                            <%})%>
+                        <%}%>
+                            
+                    </table>
+                </main>
+            </div>
+        </div>
+
+        <script>
+            if (window.history.replaceState){
+                    window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>
+        

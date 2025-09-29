@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+    <head>
+        <title>POST RESIDENT</title>
+        <meta charset='utf-8'>
+        <%- include ('../partials/head'); %>
+        <style>
+            #navbar{
+             margin-right: 12px;
+            }
+            
+         </style>
+    </head>
+
+    <body class = "container">
+        <h1>
+           POST RESIDENT
+        </h1>   
+        <header>
+            <nav>
+                <a href = "/home"  id = "navbar"> Home</a> 
+                <a href = "/resident/get" id = "navbar"> GET</a> 
+                <a href = "/resident/put" id = "navbar"> PUT</a> 
+                <a href = "/resident/post" id = "navbar"> POST</a> 
+                <a href = "/resident/delete" id = "navbar"> DELETE</a>
+            </nav>
+        </header>  
+
+        <div class = "row">
+            <div class = "col pr-0">
+                <main class = "jumbotron" style = "height:100%;">
+            
+                    <h2>POST RESIDENT</h2>
+        
+                    <form action = "/resident/post" method = "post" style = "text-align:left;">
+                        Room: 
+                        <select name = "room" class = "form-control text-center">
+                            <%if(locals.rooms_available){%>
+                                <%locals.rooms_available.forEach(function(x){%>
+                                    <option value = "<%=x.id%>"> #<%=x.number%> </option>
+                                <%})%>
+                            <%}%>
+                            
+                        </select>
+                        <br>
+                        Resident First Name: <input type = "text" name = "firstname" class = "form-control" placeholder = "Input Resident First Name" required > <br>
+                        Resident Last Name: <input type = "text" name = "lastname" class = "form-control" placeholder = "Input Resident Last Name" required><br>
+                        Resident Age: <input type = "text" name = "age" class = "form-control" required placeholder = "Input Number"> <br>
+                        <input type = "submit" class = "btn btn-primary">
+                    </form>
+                    <br>
+                    <%if (locals.api_response){%>
+                        <span style = "color: green; font-weight: bold;"><%=api_response%></span>
+                    <%}%>
+                        
+        
+                </main>
+            </div>
+            <div class = "col pl-0">
+                <main class = "jumbotron" style = "height: 100%;">
+                    <h2>Resident Database</h2>
+                <table class = "table-sm table table-primary" style = "width:100%;">
+                        <tr>
+                            
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Room</th>
+                        </tr>
+                        <%if(locals.available_residents){%>
+                            <%if(locals.firstname && locals.lastname && locals.age){%>
+                                <%locals.available_residents.forEach(function(x){%>
+                                    <tr>
+                                        <%if((x.firstname == firstname) &&(x.lastname == lastname)&&(x.age == age)){%>
+                                            <td style = "background-color: rgb(200, 255, 200);"><%=x.firstname%></td>
+                                            <td style = "background-color: rgb(200, 255, 200);"><%=x.lastname%></td>
+                                            <td style = "background-color: rgb(200, 255, 200);"><%=x.age%></td>
+                                            <td style = "background-color: rgb(200, 255, 200);">#<%=x.number%></td>
+                                        <%}
+                                        else{%>
+                                            <td><%=x.firstname%></td>
+                                            <td ><%=x.lastname%></td>
+                                            <td ><%=x.age%></td>
+                                            <td >#<%=x.number%></td>
+                                            
+                                        <%}%>
+                                    </tr>
+                                        
+                                    <%})%>
+                            <%}
+                            else{%>
+
+                                <%locals.available_residents.forEach(function(x){%>
+                                    <tr>
+                                        <td><%=x.firstname%></td>
+                                        <td ><%=x.lastname%></td>
+                                        <td ><%=x.age%></td>
+                                        <td >#<%=x.number%></td>
+                                    </tr>
+                                <%})%>
+                            <%}%>        
+                        <%}%>
+                </table>
+
+                </main>
+                
+            </div>
+        </div>
+        
+        <script>
+            if (window.history.replaceState){
+                    window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+
+        <footer>
+            <%- include('../partials/footer.ejs'); %>
+        </footer>
+    </body>
+    
+</html>
+        
