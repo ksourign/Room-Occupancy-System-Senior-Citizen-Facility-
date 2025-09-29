@@ -2,7 +2,7 @@
 **Python** - used for writing REST APIs in Flask(Python)
 **Node.js** - platform that runs JavaScript servers
 
-**Backend Servers**  
+<ins>**Backend Servers**<ins>  
 **Express** - Handles HTTP requests, routes, and responses - Express
 **Flask(Python)** - lightweight web framework for Python to build a web application with REST APIs - used for writing API endpoints to return JSON data
 
