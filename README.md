@@ -21,6 +21,7 @@ Writing Application Programming Interfaces (APIs) to handle HTTP requests to int
 
 Install flask: **pip install flask**
 Install express: **npm install express**
+Install ejs: npm install ejs
 
 Install axios: **npm install axios**
 Install the official MySQL connector for Python: **pip install mysql-connector-python**
