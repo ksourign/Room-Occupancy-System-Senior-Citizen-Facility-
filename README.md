@@ -28,15 +28,15 @@ https://www.youtube.com/watch?v=u96rVINbAUI&t=62s
 **Note:** Remember *MySQL Root Password* to change credentials in **creds.py** later
 2. **Create your own MySQL connection**  
 **Note:** Remember *Hostname* and *Username* to change credentials in **creds.py** later if need be  
-![alt text](image.png)
+![alt text](/README_images/mysql_connection_setup.png)
 
 
 
 3. **Create MySQL database name "sprint1" in MySQL connection**:
     - **Open SQL script** and select **sprint1sql.sql** file in **backend** folder
-    ![alt text](image-4.png)
+    ![alt text](/README_images/open_sql_script.png)
     - Execute SQL statements by placing your cursor at the end of each statement and clicking the lightning bolt with a cursor at the top:
-    ![alt text](image-5.png)
+    ![alt text](/README_images/execute_SQL_query.png)
         ```sql 
         -- Execute to create "sprint1" database
         create database sprint1;
@@ -64,30 +64,30 @@ https://www.youtube.com/watch?v=u96rVINbAUI&t=62s
 ### <u>Environment Setup</u>
 1. **Download and install Node.js on computer:** https://www.youtube.com/watch?v=7pbQ4ZKPBiU  
 2. **Download zip file, extract, and open folder in VS Code**
-![alt text](image-10.png)<br><br>
-![alt text](image-9.png)
+![alt text](/README_images/download_github_zip.png)<br><br>
+![alt text](/README_images/opening_folder_vscode.png)
 3. **Open Terminal in *backend* folder and install the following:**  
     - **Install flask:** `pip install flask`  
     - **Install express:** `npm install express`  
     - **Install axios:** `npm install axios`  
     - **Install ejs:**`npm install ejs`  
     - **Install MySQL connector for Python:** `pip install mysql-connector-python`<br><br>
-![alt text](image-3.png)  
+![alt text](/README_images/open_terminal_vscode.png)  
 
 4. Change credentials in creds.py if need be  
-![alt text](image-2.png) 
+![alt text](/README_images/creds.py.png) 
 
 5. Test MySQL database connection by running `python restapi.py` in the Terminal of *backend* folder  
 (You should see "Connection to MySQL DB successful")
-![alt text](image-12.png)
+![alt text](/README_images/successful_MySQL%20DB%20connection.png)
 
 6. Open another Terminal in the ***backend*** folder and run `node server.js` to run the room occupancy system
     - Ctrl + click the localhost link to launch the system:
-![alt text](image-8.png)
+![alt text](/README_images/launching_localhost.png)
     - You should see the login page once launched:
-![alt text](image-13.png)
+![alt text](/README_images/login_page.png)
 
 7. **Login credentials to enter welcome page and access the room occupancy system:**  
 user = cis  
 password = 3368
-![alt text](image-1.png)
+![alt text](/README_images/welcome_page.png)
