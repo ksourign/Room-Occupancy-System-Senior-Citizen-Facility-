@@ -3,3 +3,5 @@ class Creds:
     userName = 'root'
     password = 'admin123!'
     dbName = 'sprint1'
+
+    
