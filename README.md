@@ -14,9 +14,12 @@ Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by perfo
 
 <u>**Backend Servers**</u>  
 - **Express** - web framework for Node.js
-    - Listens to HTTP requests, handles routes and responses, and renders pages  
+    - Listens to HTTP requests, handles routes and responses, and renders pages using EJS templates
 - **Flask** - web framework for Python to build a web application with REST APIs
     - Used for writing Python REST APIs to return JSON data and interact with MySQL database
+
+<u>**View / Template Engine**</u> 
+- **EJS (Embedded JavaScript)** - renders dynamic HTML pages with data responses from Flask API routes  
 
 <u>**HTTP Client**</u>  
 - **Axios** - Used to send HTTP requests (users' GET, PUT, POST, DELETE data) from the frontend to API endpoints written to receive the responses<br>
@@ -25,26 +28,26 @@ Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by perfo
 ### <u>Database Setup</u>
 1. **Download MySQL Server and MySQL Workbench:**  
 https://www.youtube.com/watch?v=u96rVINbAUI&t=62s  
-**Note:** Remember *MySQL Root Password* to change credentials in **creds.py** later
-2. **Create your own MySQL connection**  
+**Note:** Remember your *MySQL Root Password* to change credentials in **creds.py** later. But if you want to avoid changing later, input 'admin123!' as the password
+
+
+2. **Create your own MySQL connection** **(4:36 in video)**  
 **Note:** Remember *Hostname* and *Username* to change credentials in **creds.py** later if need be  
 ![alt text](/README_images/mysql_connection_setup.png)
 
 
-
-3. **Create MySQL database name "sprint1" in MySQL connection**:
-    - **Open SQL script** and select **sprint1sql.sql** file in **backend** folder
+3. **Create MySQL database named "sprint1" in MySQL connection**:
+    - **Open SQL script and select *sprint1sql.sql* file in *backend* folder**
     ![alt text](/README_images/open_sql_script.png)
-    - Execute SQL statements by placing your cursor at the end of each statement and clicking the lightning bolt with a cursor at the top:
+    - **Execute SQL statements to create 'sprint1' database and use the database (place mouse cursor at the end of each statement and click the icon with a lightning bolt and a cursor at the top)** 
     ![alt text](/README_images/execute_SQL_query.png)
-        ```sql 
-        -- Execute to create "sprint1" database
-        create database sprint1;
+        ```sql
+        create database sprint1; -- Execute to create "sprint1" database
 
-        -- Execute to use "sprint1" database
-        use sprint1;
-        
-    - Execute SQL statements to create tables *floor*, *room*, and *resident*:  
+        use sprint1; -- Execute to use "sprint1" database
+
+    - **Execute SQL statements to create and populate tables *floor*, *room*, and *resident* (execute in order):**  
+
         ```sql 
         --Floor table example:
 
@@ -54,37 +57,42 @@ https://www.youtube.com/watch?v=u96rVINbAUI&t=62s
         level int,
         name varchar(255));
 
-        --Execute insertion query for floor table
+        --Execute insertion query to populate floor table
         insert into floor values 
         (-1, -1, 'basement'), 
         (null, 1, '1st'), 
         (null, 2, '2nd'), 
         (null, 3, '3rd');
+
+        --repeat for room and resident SQL statements
   
 ### <u>Environment Setup</u>
 1. **Download and install Node.js on computer:** https://www.youtube.com/watch?v=7pbQ4ZKPBiU  
-2. **Download zip file, extract, and open folder in VS Code**
+
+2. **Download zip file from GitHub, extract folder, and open folder in VS Code**  
 ![alt text](/README_images/download_github_zip.png)<br><br>
 ![alt text](/README_images/opening_folder_vscode.png)
-3. **Open Terminal in *backend* folder and install the following:**  
+
+3. **Open Terminal in *backend* folder (right click *backend* folder) and install the following:**  
+![alt text](/README_images/open_terminal_vscode.png)
+![alt text](/README_images/running_terminal.png)
     - **Install flask:** `pip install flask`  
     - **Install express:** `npm install express`  
     - **Install axios:** `npm install axios`  
     - **Install ejs:**`npm install ejs`  
-    - **Install MySQL connector for Python:** `pip install mysql-connector-python`<br><br>
-![alt text](/README_images/open_terminal_vscode.png)  
+    - **Install MySQL connector for Python:** `pip install mysql-connector-python`<br>
+  
 
-4. Change credentials in creds.py if need be  
+4. **Change credentials in creds.py if need be**  
 ![alt text](/README_images/creds.py.png) 
 
-5. Test MySQL database connection by running `python restapi.py` in the Terminal of *backend* folder  
-(You should see "Connection to MySQL DB successful")
+5. **Test MySQL database connection by running `python restapi.py` in the Terminal of *backend* folder** (you should see "Connection to MySQL DB successful")
 ![alt text](/README_images/successful_MySQL%20DB%20connection.png)
 
-6. Open another Terminal in the ***backend*** folder and run `node server.js` to run the room occupancy system
-    - Ctrl + click the localhost link to launch the system:
+6. **Open another Terminal in the ***backend*** folder and run `node server.js` to run the room occupancy system**
+    - **Ctrl + click the localhost link to launch the system:**
 ![alt text](/README_images/launching_localhost.png)
-    - You should see the login page once launched:
+    - **You should see the login page once launched:**
 ![alt text](/README_images/login_page.png)
 
 7. **Login credentials to enter welcome page and access the room occupancy system:**  
