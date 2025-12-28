@@ -1,5 +1,5 @@
 ## **Room Occupancy System**
-Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by performing CRUD (create, read, update, delete) operations through a graphical user interface.
+Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by performing CRUD (create, read, update, delete) operations through a graphical user interface.  
 Note: This was a solo college project for an *Advanced Information Systems Development* course
 
 <details><summary>Learning Outcomes</summary>  
