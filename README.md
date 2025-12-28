@@ -1,5 +1,7 @@
-## **Room Occupancy System (College Project for Advanced Information Systems Development course)**
-Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by performing CRUD operations (create, read, update, delete) through the user interface. Essentially, users can insert, retrieve, update, and delete records in the database.
+## **Room Occupancy System**
+Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by performing CRUD operations (create, read, update, delete) through a graphical user interface.
+Note: This was a solo college project for an *Advanced Information Systems Development* course
+
 <details><summary>Learning Outcomes</summary>  
 
 - Developing a full-stack, web-based information system (frontend and backend)  
