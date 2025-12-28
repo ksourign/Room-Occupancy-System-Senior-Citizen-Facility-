@@ -1,5 +1,5 @@
-## **Room Occupancy System**
-Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by performing CRUD (create, read, update, delete) operations through a graphical user interface.  
+## **Room Occupancy System for a Senior Citizen Facility **
+Users can manage a floor, room, and resident data within the senior citizen facility by performing CRUD (create, read, update, delete) operations through a graphical user interface.  
 ***Note:*** This was a solo college project for an *Advanced Information Systems Development* course
 
 <details><summary>Learning Outcomes</summary>  
@@ -19,6 +19,9 @@ Users can manage a MySQL database (tables: *floor*, *room*, *resident*) by perfo
     - Listens to HTTP requests, handles routes and responses, and renders pages using EJS templates
 - **Flask** - web framework for Python to build a web application with REST APIs
     - Used for writing Python REST APIs to return JSON data and interact with MySQL database
+
+<u>**Database**</u>  
+- **MySQL Database** - stores the floor, room, and resident data
 
 <u>**View / Template Engine**</u> 
 - **EJS (Embedded JavaScript)** - renders dynamic HTML pages with data responses from Flask API routes  
