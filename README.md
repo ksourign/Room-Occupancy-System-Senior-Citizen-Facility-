@@ -1,4 +1,4 @@
-## **Room Occupancy System for a Senior Citizen Facility **
+## *Room Occupancy System for a Senior Citizen Facility *
 Users can manage floor, room, and resident data within the senior citizen facility by performing CRUD (create, read, update, delete) operations through a graphical user interface.  
 ***Note:*** This was a solo college project for an *Advanced Information Systems Development* course
 
